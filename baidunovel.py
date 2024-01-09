@@ -27,7 +27,6 @@ async def aiodownload(cid, b_id, title):
                 except TypeError:
                     print("not subscritpable")
 
-
 async def getCatelog(url):
     res = requests.get(url)
     dict = res.json()
