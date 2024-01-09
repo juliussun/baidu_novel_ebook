@@ -1,10 +1,10 @@
 import requests
 import json
 
-def download(cid, b_id, title):
+def download(cid, book_id, title):
     data = {
-        "book_id":b_id,
-        "cid":f"{b_id}|{cid}",
+        "book_id":book_id,
+        "cid":f"{book_id}|{cid}",
         "need_bookinfo":1
     }
     dir = "./data/"
@@ -21,10 +21,10 @@ def getCatalog(url):
     for item in dict["data"]["novel"]["items"]:
         title = item["title"]
         cid = item["cid"]
-        download(cid,b_id,title)
+        download(cid,book_id,title)
 
 if __name__ == "__main__":
     # Chapters request url name, cid
-    b_id = "4306063500"
-    url = 'https://dushu.baidu.com/api/pc/getCatalog?data={"book_id":'+b_id+'}'
+    book_id = "4306063500"
+    url = 'https://dushu.baidu.com/api/pc/getCatalog?data={"book_id":'+book_id+'}'
     getCatalog(url)
